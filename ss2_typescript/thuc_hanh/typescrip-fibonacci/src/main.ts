@@ -1,13 +1,28 @@
-let n1 = 0;
-let n2 = 1;
-let total;
-let text="";
-let tong = 0;
-for (let i = 1; i <= 20; i++) {
-    total = n1 + n2;
-    n1 = n2;
-    n2 = total;
-    text += + n1 + "<br>";
-    tong += n1;
+function fibonacci(num:number) {
+    let n1: number = 0;
+    let n2: number = 1;
+    let total: number;
+    let text: string = "";
+    let tong: number = 0;
+    for (let i = 1; i <= num; i++) {
+        total = n1 + n2;
+        n1 = n2;
+        n2 = total;
+        text += + n1 + ";";
+        tong += n1;
+    }
+    console.log(tong);
+    console.log(text);
 }
-console.log(tong);
+fibonacci(10);
+
+// function fibonacci(num: number) {
+//     let sum: number;
+//     if (num == 0) return 0;
+//     if (num == 1 || num == 2) return 1;
+//     sum = fibonacci(num - 1) + fibonacci(num - 2);
+//     return sum
+//     console.log(sum);
+// }
+//
+// fibonacci(10)

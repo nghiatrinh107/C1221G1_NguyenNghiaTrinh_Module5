@@ -31,6 +31,7 @@
                             <ol class="breadcrumb justify-content-center">
                                 <li class="breadcrumb-item"><a href="index.html">Home</a></li>
                                 <li class="breadcrumb-item active" aria-current="page"><a href="customer.html">Customer</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Customer edit</a></li>
                             </ol>
                         </nav>
                     </div>
@@ -48,10 +49,14 @@
 <section class="section-margin section-margin--small">
     <div class="container">
         <div class="section-intro text-center pb-80px">
-            <h2>Create New Customer</h2>
+            <div class="section-intro__style">
+                <img alt="" src="img/home/user.png">
+            </div>
+            <h2>Update Customer Information</h2>
         </div>
         <div class="col-8 mx-auto">
             <div class="mx-auto shadow-lg p-3 mb-5 bg-white rounded-lg">
+                <input type="hidden" name="id"/>
                 <div class="form-group row">
                     <label for="name" class="col-sm-3 col-form-label">Name</label>
                     <div class="col-sm-9">
@@ -125,7 +130,7 @@
                         <a href="#" class="button button--cancel cancel-banner-btn">Cancel</a>
                     </div>
                     <div class="mx-2">
-                        <a href="#" class="button button--active home-banner-btn">Create</a>
+                        <a href="#" class="button button--active home-banner-btn">Update</a>
                     </div>
                 </div>
             </div>
