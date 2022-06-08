@@ -12,8 +12,7 @@ public color: string;
   ngOnInit(): void {
   }
 
-  getColor() {
-    let color1 = (document.getElementById('color') as HTMLInputElement).value;
-    this.color = color1;
+  getColor(value) {
+    this.color = value;
   }
 }

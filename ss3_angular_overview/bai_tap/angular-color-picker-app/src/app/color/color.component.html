@@ -1,6 +1,6 @@
 <div>
   <input type="color" id="color" name="color"
-         value="#e66465" (change)="getColor()">
+         value="#e66465" (change)="getColor($event.target.value)">
   <label for="color">Color</label>
-  <h4 style="color: {{color}}">{{color}}</h4>
+  <h4 [ngStyle]="{color : color}">{{color}}</h4>
 </div>
