@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-calculator',
@@ -6,22 +6,28 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./calculator.component.css']
 })
 export class CalculatorComponent implements OnInit {
-public number = '' ;
-  constructor() { }
+  public number1: number;
+  public number2: number;
+  public result: number;
+
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
 
   calculator(value: string) {
-    this.number += value;
-  }
-
-  remove() {
-    this.number = '';
-  }
-
-  result() {
-    // tslint:disable-next-line:no-eval
-   this.number = eval(this.number);
+    if (value === '+') {
+      this.result = Number(String(this.number1)) + Number(String(this.number2));
+    }
+    if (value === '-') {
+      this.result = Number(String(this.number1)) - Number(String(this.number2));
+    }
+    if (value === '*') {
+      this.result = Number(String(this.number1)) * Number(String(this.number2));
+    }
+    if (value === '/') {
+      this.result = Number(String(this.number1)) / Number(String(this.number2));
+    }
   }
 }

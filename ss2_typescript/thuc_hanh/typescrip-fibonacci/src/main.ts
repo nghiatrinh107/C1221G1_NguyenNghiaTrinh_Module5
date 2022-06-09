@@ -1,4 +1,4 @@
-function fibonacci(num:number): void {
+function sumFibonacci(num:number): void {
     let n1: number = 0;
     let n2: number = 1;
     let temp: number;
@@ -31,4 +31,25 @@ function fibonacci(num:number): void {
 //
 // main(10);
 
+let arr: number[] = [];
+let number1: number = 0;
+let number2: number = 1;
+let currentFibonacci: number;
+let count: number = 0;
 
+// @ts-ignore
+function fibonacci(num: number,count: number): Array<number> {
+    if (count<num){
+        if(count<1){
+            currentFibonacci = count;
+        }else {
+            currentFibonacci = number1 + number2;
+            number1 = number2;
+            number2 = currentFibonacci;
+        }
+        count++;
+        arr.push(currentFibonacci);
+        fibonacci(num,count);
+    }else
+        return arr
+}
