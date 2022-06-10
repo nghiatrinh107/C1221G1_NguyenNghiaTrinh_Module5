@@ -1,14 +1,7 @@
-<header class="header-area">
-  <!-- Search Form -->
-  <div class="search-form d-flex align-items-center">
-    <div class="container">
-      <form action="index.html" method="get">
-        <input type="search" name="search-form-input" id="searchFormInput" placeholder="Type your keyword ...">
-        <button type="submit"><i class="icon_search"></i></button>
-      </form>
-    </div>
-  </div>
 
+<!-- /Preloader -->
+
+<header class="header-area">
   <!-- Top Header Area Start -->
   <div class="top-header-area">
     <div class="container">
@@ -63,11 +56,36 @@
             <!-- Nav Start -->
             <div class="classynav">
               <ul id="nav">
-                <li class="active"><a href="./index.html">Home</a></li>
-                <li><a href="facility.html">Facility</a></li>
-                <li><a href="service.html">Service</a></li>
-                <li><a href="employee.html">Customer</a></li>
-                <li><a href="./contact.html">Contract</a></li>
+                <li class="active"><a [routerLink]="'/'">Home</a></li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                   Customer
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" [routerLink]="['/customer']">List</a>
+                    <a class="dropdown-item" [routerLink]="['/customer-create']">Create</a>
+                  </div>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Facility
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" [routerLink]="['/facility']">List</a>
+                    <a class="dropdown-item" [routerLink]="['/facility-create']">Create</a>
+                  </div>
+                </li>
+                <li><a href="#">Room</a></li>
+                <li><a href="#">Service</a></li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                   Contract
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" [routerLink]="['/contract']">List</a>
+                    <a class="dropdown-item" [routerLink]="['/contract-create']">Create</a>
+                  </div>
+                </li>
               </ul>
 
               <!-- Search -->
@@ -87,24 +105,4 @@
     </div>
   </div>
 </header>
-<!-- Breadcrumb Area Start -->
-<div class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url(assets/img/bg-img/17.jpg);">
-  <div class="container h-100">
-    <div class="row h-100 align-items-center">
-      <div class="col-12">
-        <div class="breadcrumb-content text-center">
-          <div class="breadcrumb-post-content">
-            <h2 class="post-title">Customer</h2>
-            <nav aria-label="breadcrumb">
-              <ol class="breadcrumb justify-content-center">
-                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Customer</li>
-              </ol>
-            </nav>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- Breadcrumb Area End -->
+
