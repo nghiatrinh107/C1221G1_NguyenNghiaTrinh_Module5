@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {facilities} from '../../data/facilities';
 
 @Component({
   selector: 'app-facility',
@@ -14,7 +15,7 @@ export class FacilityComponent implements OnInit {
     'assets/js/default-assets/active.js',
     'assets/js/default-assets/card.js'
   ];
-
+  facilities = facilities;
   constructor() {
   }
 
