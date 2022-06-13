@@ -15,6 +15,8 @@ import { ContractCreateComponent } from './contract/contract-create/contract-cre
 import { HomeComponent } from './home/home.component';
 import {RouterModule} from '@angular/router';
 import {FuramaRoutingModule} from './furama-routing.module';
+import { ModalComponent } from './modal/modal.component';
+import { CustomerDetailComponent } from './customer/customer-detail/customer-detail.component';
 
 
 @NgModule({
@@ -30,7 +32,9 @@ import {FuramaRoutingModule} from './furama-routing.module';
     FacilityEditComponent,
     ContractComponent,
     ContractCreateComponent,
-    HomeComponent
+    HomeComponent,
+    ModalComponent,
+    CustomerDetailComponent
   ],
   imports: [
     BrowserModule,

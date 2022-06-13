@@ -1,0 +1,27 @@
+<form>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" formControlName="email" aria-describedby="emailHelp">
+    <div style="color: red" *ngIf="signIn.controls.email.hasError('email') && signIn.controls.email.touched">
+      Sai dinh dang email
+    </div>
+    <div style="color: red" *ngIf="signIn.controls.email.hasError('required') && signIn.controls.email.touched">
+      Khong dc de trong
+    </div>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input type="password" class="form-control" formControlName="password" id="exampleInputPassword1">
+    <div style="color: red" *ngIf="signIn.controls.password.hasError('min') && signIn.controls.password.touched">
+      It nhat 6 ki tu
+    </div>
+    <div style="color: red" *ngIf="signIn.controls.password.hasError('required') && signIn.controls.password.touched">
+      Khong dc de trong
+    </div>
+  </div>
+  <div class="mb-3 form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>

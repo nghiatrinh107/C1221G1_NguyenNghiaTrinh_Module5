@@ -5,10 +5,11 @@
       <div class="col-12">
         <div class="breadcrumb-content text-center">
           <div class="breadcrumb-post-content">
-            <h2 class="post-title">Customer</h2>
+            <h2 class="post-title">Facility Create</h2>
             <nav aria-label="breadcrumb">
               <ol class="breadcrumb justify-content-center">
                 <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item"><a [routerLink]="['/facility']">Facility</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Customer</li>
               </ol>
             </nav>
@@ -36,11 +37,11 @@
           <div class="col-sm-9">
             <select id="facilityTypeId"
                     class="form-control"
-                    onchange="showFacilityType()">
+                    (change)="showFacility($event.target.value)">
               <option value="null">Select Facility type</option>
               <option value="1">Villa</option>
               <option value="2">House</option>
-              <option value="null">Room</option>
+              <option value="3">Room</option>
             </select>
           </div>
         </div>
@@ -102,7 +103,7 @@
               <input type="text" class="form-control" id="description">
             </div>
           </div>
-          <div class="form-group row">
+          <div class="form-group row" [hidden]="!numberFloor">
             <label for="numberFloor" class="col-sm-3 col-form-label">Number of floor</label>
             <div class="col-sm-9">
               <input type="text" class="form-control" id="numberFloor">
@@ -110,7 +111,7 @@
           </div>
         </div>
         <!--                Villa-->
-        <div id="villaOnly">
+        <div id="villaOnly" [hidden]="!poolSquare">
           <div class="form-group row">
             <label for="poolSquare" class="col-sm-3 col-form-label">Pool square</label>
             <div class="col-sm-9">

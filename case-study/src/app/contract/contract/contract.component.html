@@ -5,7 +5,7 @@
       <div class="col-12">
         <div class="breadcrumb-content text-center">
           <div class="breadcrumb-post-content">
-            <h2 class="post-title">Customer</h2>
+            <h2 class="post-title">Contract</h2>
             <nav aria-label="breadcrumb">
               <ol class="breadcrumb justify-content-center">
                 <li class="breadcrumb-item"><a href="index.html">Home</a></li>
@@ -44,31 +44,32 @@
         </div>
       </div>
     </div>
-    <table class="table table-borderless table-striped">
-      <thead class="thead-dark">
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Facility</th>
-        <th scope="col">Customer</th>
-        <th scope="col">Phone</th>
-        <th scope="col">Start date</th>
-        <th scope="col">End date</th>
-        <th scope="col">Deposit</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let contract of contracts,index as index">
-        <td>{{index+1}}</td>
-        <td>{{contract.facility.name}}</td>
-        <td>{{contract.customer.customerName}}</td>
-        <td>{{contract.customer.phone}}</td>
-        <td>{{contract.startDate|date: "dd/MM/yyyy"}}</td>
-        <td>{{contract.endDate|date: "dd/MM/yyyy"}}</td>
-        <td>{{contract.deposit|currency: "$"}}</td>
-      </tr>
-      </tbody>
-    </table>
-
+    <div class="table-responsive">
+      <table class="table table-borderless table-striped">
+        <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Facility</th>
+          <th scope="col">Customer</th>
+          <th scope="col">Phone</th>
+          <th scope="col">Start date</th>
+          <th scope="col">End date</th>
+          <th scope="col">Deposit</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let contract of contracts,index as index">
+          <td>{{index + 1}}</td>
+          <td>{{contract.facility.name}}</td>
+          <td>{{contract.customer.customerName}}</td>
+          <td>{{contract.customer.phone}}</td>
+          <td>{{contract.startDate|date: "dd/MM/yyyy"}}</td>
+          <td>{{contract.endDate|date: "dd/MM/yyyy"}}</td>
+          <td>{{contract.deposit|currency: "$"}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
   <!--        paging-->
   <nav class="blog-pagination d-flex justify-content-center py-3">
