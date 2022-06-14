@@ -17,6 +17,7 @@ import {RouterModule} from '@angular/router';
 import {FuramaRoutingModule} from './furama-routing.module';
 import { ModalComponent } from './modal/modal.component';
 import { CustomerDetailComponent } from './customer/customer-detail/customer-detail.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -39,7 +40,9 @@ import { CustomerDetailComponent } from './customer/customer-detail/customer-det
   imports: [
     BrowserModule,
     RouterModule,
-    FuramaRoutingModule
+    FuramaRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

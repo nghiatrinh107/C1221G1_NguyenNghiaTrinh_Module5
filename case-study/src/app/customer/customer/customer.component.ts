@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {customers} from '../../data/customer';
 
+
 declare let threeDotForCustomer: any;
 
 @Component({

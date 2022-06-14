@@ -10,7 +10,7 @@
               <ol class="breadcrumb justify-content-center">
                 <li class="breadcrumb-item"><a href="index.html">Home</a></li>
                 <li class="breadcrumb-item"><a [routerLink]="['/facility']">Facility</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Customer</li>
+                <li class="breadcrumb-item active" aria-current="page">Facility create</li>
               </ol>
             </nav>
           </div>
@@ -30,6 +30,7 @@
       </div>
       <h2>Create New Facility</h2>
     </div>
+    <form [formGroup]="facilityForm" >
     <div class="col-8 mx-auto">
       <div class="mx-auto shadow-lg p-3 mb-5 bg-white rounded-lg">
         <div class="form-group row">
@@ -139,7 +140,7 @@
 
       </div>
     </div>
-
+    </form>
   </div>
 
 </section>
