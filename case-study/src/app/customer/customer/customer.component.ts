@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {customers} from '../../data/customer';
+import {Customer} from '../../module/customer';
+import {CustomerService} from '../customer.service';
 
 
 declare let threeDotForCustomer: any;
@@ -10,12 +12,13 @@ declare let threeDotForCustomer: any;
   styleUrls: ['./customer.component.css']
 })
 export class CustomerComponent implements OnInit {
-  customers = customers;
+  customers: Customer[] = [];
 
-  constructor() {
+  constructor(private customerService: CustomerService) {
   }
 
   ngOnInit(): void {
+    this.customers = this.customerService.getAllCustomer();
     // tslint:disable-next-line:no-unused-expression
     new threeDotForCustomer();
   }

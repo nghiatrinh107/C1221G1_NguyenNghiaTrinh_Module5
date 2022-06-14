@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {customerTypes} from '../../data/customerType';
+import {CustomerTypeService} from '../customer-type.service';
+import {CustomerService} from '../customer.service';
+import {Customer} from '../../module/customer';
+import {CustomerType} from '../../module/customer-type';
 
 
 
@@ -12,9 +16,11 @@ import {customerTypes} from '../../data/customerType';
 
 
 export class CustomerCreateComponent implements OnInit {
-  customerTypes = customerTypes;
+  customer = {} as Customer;
+  customerTypes: CustomerType[] = [];
   customerForm: FormGroup;
-  constructor() {
+  constructor(private customerService: CustomerService,
+              private customerTypeService: CustomerTypeService) {
   }
 
   ngOnInit(): void {
@@ -31,6 +37,11 @@ export class CustomerCreateComponent implements OnInit {
     });
   }
 
-  // createCustomer() {
-  // }
+  createCustomer() {
+    if (this.customerForm.valid) {
+      this.customer = this.customerForm.value;
+      this.customerService.save(this.customer);
+      this.customerForm.reset();
+    }
+  }
 }

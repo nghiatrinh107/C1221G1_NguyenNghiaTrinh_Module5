@@ -36,9 +36,9 @@ export class ProductService {
     return this.products;
   }
 
-  saveProduct(product) {
-    this.products.push(product);
-  }
+    saveProduct(product) {
+      this.products.push(product);
+    }
 
   findById(id: number) {
     return this.products.find(product => product.id === id);
