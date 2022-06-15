@@ -13,7 +13,7 @@ declare let threeDotForCustomer: any;
 })
 export class CustomerComponent implements OnInit {
   customers: Customer[] = [];
-
+  customerDelete = {} as Customer;
   constructor(private customerService: CustomerService) {
   }
 
@@ -22,5 +22,17 @@ export class CustomerComponent implements OnInit {
     // tslint:disable-next-line:no-unused-expression
     new threeDotForCustomer();
   }
+  getCustomer(customer: Customer) {
+    this.customerDelete = customer;
+  }
 
+  deleteCustomer(customerDelete: Customer) {
+    const check = this.customerService.findById(customerDelete.customerId) === undefined;
+    if (check) {
+      alert('can not found');
+    } else {
+      this.customerService.delete(customerDelete);
+      this.ngOnInit();
+    }
+  }
 }

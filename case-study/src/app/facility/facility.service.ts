@@ -118,4 +118,16 @@ private facilities: Facility[] = [
       this.facilities.push(facility);
     }
   }
+  public update(id: number, facility: Facility) {
+    for (let i = 0; i < this.facilities.length; i++) {
+      if (this.facilities[i].id === id) {
+        this.facilities[i] = facility;
+      }
+    }
+  }
+  public delete(facility: Facility) {
+    this.facilities = this.facilities.filter(element => {
+      return element.id !== facility.id;
+    });
+  }
 }

@@ -16,14 +16,16 @@ import {CustomerEditComponent} from './customer/customer-edit/customer-edit.comp
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'home'},
   {path: 'home', component: HomeComponent},
-  {path: 'facility', component: FacilityComponent},
-  {path: 'facility-create', component: FacilityCreateComponent},
+  {
+    path: 'facility',
+    loadChildren: () => import('./facility/facility.module.js').then(module => module.FacilityModule)
+  },
   {path: 'customer', component: CustomerComponent},
   {path: 'customer-create', component: CustomerCreateComponent},
   {path: 'contract', component: ContractComponent},
   {path: 'contract-create', component: ContractCreateComponent},
   {path: 'customer-detail', component: CustomerDetailComponent },
-  {path: 'customer-edit/:customerId', component: CustomerEditComponent}
+  {path: 'customer-edit/:customerId', component: CustomerEditComponent},
 ];
 
 

@@ -30,47 +30,86 @@
     </div>
     <div class="col-8 mx-auto">
       <div class="mx-auto shadow-lg p-3 mb-5 bg-white rounded-lg">
+        <form [formGroup]="facilityForm" (ngSubmit)="updateFacility(id)">
+
         <div class="form-group row">
           <label for="facilityTypeId" class="col-sm-3 col-form-label">Service type</label>
           <div class="col-sm-9">
             <select id="facilityTypeId"
                     class="form-control"
-                    onchange="showFacilityType()">
-              <option value="null">Select Facility type</option>
-              <option value="1">Villa</option>
-              <option value="2">House</option>
-              <option value="null">Room</option>
+                    [compareWith]="compareFn"
+                    formControlName="facilityType"
+                    (ngModelChange)="showFacility($event)">
+              <option value="">Select Facility type</option>
+              <option *ngFor="let facilityType of facilityTypes"
+                      [ngValue]="facilityType">{{facilityType.facilityType}}</option>
             </select>
+            <p style="color: red"
+               *ngIf="facilityForm.controls.facilityType.hasError('required') && facilityForm.controls.facilityType.touched">
+              Không đc để trống
+            </p>
           </div>
         </div>
         <div class="form-group row">
           <label for="name" class="col-sm-3 col-form-label">Name</label>
           <div class="col-sm-9">
-            <input type="text" class="form-control" id="name">
+            <input type="text" class="form-control" formControlName="name" id="name">
+            <p style="color: red"
+               *ngIf="facilityForm.controls.name.hasError('required') && facilityForm.controls.name.touched">
+              Không đc để trống
+            </p>
           </div>
         </div>
         <div class="form-group row">
           <label for="code" class="col-sm-3 col-form-label">Code</label>
           <div class="col-sm-9">
-            <input type="text" class="form-control" id="code">
+            <input type="text" class="form-control" formControlName="code" id="code">
+            <p style="color: red"
+               *ngIf="facilityForm.controls.code.hasError('required') && facilityForm.controls.code.touched">
+              Không đc để trống
+            </p>
+            <p style="color: red"
+               *ngIf="facilityForm.controls.code.hasError('pattern') && facilityForm.controls.code.touched">
+              DV-XXX
+            </p>
           </div>
         </div>
         <div class="form-group row">
           <label for="floorSquare" class="col-sm-3 col-form-label">Floor square</label>
           <div class="col-sm-9">
-            <input type="number" class="form-control" id="floorSquare">
+            <input type="text" class="form-control" formControlName="floorSquare" id="floorSquare">
+            <p style="color: red"
+               *ngIf="facilityForm.controls.floorSquare.hasError('required') && facilityForm.controls.floorSquare.touched">
+              Không đc để trống
+            </p>
+            <p style="color: red"
+               *ngIf="facilityForm.controls.floorSquare.hasError('pattern') && facilityForm.controls.floorSquare.touched">
+              Là số lơn hơn 0.
+            </p>
           </div>
         </div>
         <div class="form-group row">
           <label for="rentalFee" class="col-sm-3 col-form-label">Rental Fee</label>
           <div class="col-sm-9">
-            <input type="number" class="form-control" id="rentalFee" step="any">
+            <input type="text" class="form-control" id="rentalFee" formControlName="rentalFee" step="any">
+            <p style="color: red"
+               *ngIf="facilityForm.controls.rentalFee.hasError('required') && facilityForm.controls.rentalFee.touched">
+              Không đc để trống
+            </p>
           </div>
         </div>
         <div class="form-group row">
           <label for="maximumPeople" class="col-sm-3 col-form-label">Maximum people</label>
           <div class="col-sm-9">
-            <input type="number" class="form-control" id="maximumPeople">
+            <input type="text" class="form-control" formControlName="maximumPeople" id="maximumPeople">
+            <p style="color: red"
+               *ngIf="facilityForm.controls.maximumPeople.hasError('required') && facilityForm.controls.maximumPeople.touched">
+              Không đc để trống
+            </p>
+            <p style="color: red"
+               *ngIf="facilityForm.controls.maximumPeople.hasError('pattern') && facilityForm.controls.maximumPeople.touched">
+              Là số lớn hơn 0
+            </p>
           </div>
         </div>
         <div class="form-group row">
@@ -78,12 +117,15 @@
           <div class="col-sm-9">
             <select class="form-control"
                     id="rentType"
+                    [compareWith]="compareFn"
+                    formControlName="rentType"
                     name="rentType">
-              <option value="null">Select Rent type</option>
-              <option value="1">Hour</option>
-              <option value="2">Day</option>
-              <option value="3">Month</option>
-              <option value="4">Year</option>
+              <option value="">Select Rent type</option>
+              <option *ngFor="let rentType of rentTypes" [ngValue]="rentType">{{rentType.rentType}}</option>
+              <p style="color: red"
+                 *ngIf="facilityForm.controls.rentType.hasError('required') && facilityForm.controls.rentType.touched">
+                Không đc để trống
+              </p>
             </select>
           </div>
         </div>
@@ -92,28 +134,28 @@
           <div class="form-group row">
             <label for="roomStandard" class="col-sm-3 col-form-label">Room standard</label>
             <div class="col-sm-9">
-              <input type="text" class="form-control" id="roomStandard">
+              <input type="text" class="form-control" formControlName="roomStandard" id="roomStandard">
             </div>
           </div>
           <div class="form-group row">
             <label for="description" class="col-sm-3 col-form-label">Description</label>
             <div class="col-sm-9">
-              <input type="text" class="form-control" id="description">
+              <input type="text" class="form-control" formControlName="description" id="description">
             </div>
           </div>
-          <div class="form-group row">
+          <div class="form-group row" [hidden]="!numberFloor">
             <label for="numberFloor" class="col-sm-3 col-form-label">Number of floor</label>
             <div class="col-sm-9">
-              <input type="text" class="form-control" id="numberFloor">
+              <input type="text" class="form-control" formControlName="numberFloor" id="numberFloor">
             </div>
           </div>
         </div>
         <!--                Villa-->
         <div id="villaOnly">
-          <div class="form-group row">
+          <div class="form-group row" [hidden]="!poolSquare">
             <label for="poolSquare" class="col-sm-3 col-form-label">Pool square</label>
             <div class="col-sm-9">
-              <input type="number" class="form-control" id="poolSquare">
+              <input type="text" class="form-control" formControlName="poolSquare" id="poolSquare">
             </div>
           </div>
         </div>
@@ -122,19 +164,27 @@
           <div class="form-group row">
             <label for="freeServiceInclude" class="col-sm-3 col-form-label">Free service include</label>
             <div class="col-sm-9">
-              <input type="number" class="form-control" id="freeServiceInclude">
+              <input type="text" class="form-control" formControlName="freeServiceInclude" id="freeServiceInclude">
+            </div>
+          </div>
+        </div>
+        <div >
+          <div class="form-group row">
+            <label for="freeServiceInclude" class="col-sm-3 col-form-label">Image</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" formControlName="image" id="image">
             </div>
           </div>
         </div>
         <div class="d-flex justify-content-center">
           <div class="mx-2">
-            <a href="#" class="btn btn-secondary">Cancel</a>
+            <a [routerLink]="['/facility/list']" class="btn btn-secondary">Cancel</a>
           </div>
           <div class="mx-2">
-            <a href="#" class="btn btn-warning">Update</a>
+            <button type="submit" class="btn btn-primary">Update</button>
           </div>
         </div>
-
+      </form>
       </div>
     </div>
 

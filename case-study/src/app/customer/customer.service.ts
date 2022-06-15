@@ -180,8 +180,15 @@ export class CustomerService {
   public update(id: number, customer: Customer) {
     for (let i = 0; i < this.customers.length; i++) {
       if (this.customers[i].customerId === id) {
+        console.log(customer);
         this.customers[i] = customer;
       }
     }
+  }
+
+  public delete(customer: Customer) {
+    this.customers = this.customers.filter(element => {
+      return element.customerId !== customer.customerId;
+    });
   }
 }
