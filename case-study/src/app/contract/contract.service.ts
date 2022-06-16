@@ -12,7 +12,7 @@ private contracts: Contract[] = [
     endDate: '2022-12-12',
     deposit: 0,
     customer: {
-      customerId: 1,
+      id: 1,
       customerCode: 'KH-0001',
       customerName: 'Nguyễn Thị Hào',
       dateOfBirth: '1970-11-07',
@@ -48,7 +48,7 @@ private contracts: Contract[] = [
     endDate: '2022-12-12',
     deposit: 180,
     customer: {
-      customerId: 3,
+      id: 3,
       customerCode: 'KH-0003',
       customerName: 'Trương Đình Nghệ',
       dateOfBirth: '1990-02-27',
@@ -86,7 +86,7 @@ private contracts: Contract[] = [
     endDate: '2022-12-08',
     deposit: 0,
     customer: {
-      customerId: 5,
+      id: 5,
       customerCode: 'KH-0005',
       customerName: 'Hoàng Trần Nhi Nhi',
       dateOfBirth: '1995-12-09',
@@ -122,7 +122,7 @@ private contracts: Contract[] = [
     endDate: '2020-11-11',
     deposit: 100,
     customer: {
-      customerId: 8,
+      id: 8,
       customerCode: 'KH-0008',
       customerName: 'Nguyễn Thị Hào',
       dateOfBirth: '1999-04-08',
@@ -159,7 +159,7 @@ private contracts: Contract[] = [
     endDate: '2022-12-12',
     deposit: 0,
     customer: {
-      customerId: 9,
+      id: 9,
       customerCode: 'KH-0009',
       customerName: 'Trần Đại Danh',
       dateOfBirth: '1994-07-01',

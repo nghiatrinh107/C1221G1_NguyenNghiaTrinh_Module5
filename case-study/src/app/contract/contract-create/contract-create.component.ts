@@ -13,15 +13,17 @@ import {FormControl, FormGroup} from '@angular/forms';
   styleUrls: ['./contract-create.component.css']
 })
 export class ContractCreateComponent implements OnInit {
-contract = {} as Contract;
-customer = {} as Customer;
-facility = {} as Facility;
-contractForm: FormGroup;
+  contract = {} as Contract;
+  customers: Customer[] = [];
+  facilities: Facility[] = [];
+  contractForm: FormGroup;
   constructor(private contractService: ContractService,
               private customerService: CustomerService,
               private facilityService: FacilityService) { }
 
   ngOnInit(): void {
+    this.customers = this.customerService.getAllCustomer();
+    this.facilities = this.facilityService.getAllFacilities();
     this.contractForm = new FormGroup({
       customer: new FormControl(''),
       facility: new FormControl(''),
@@ -30,5 +32,12 @@ contractForm: FormGroup;
       deposit: new FormControl('')
     });
   }
-
+  createContract() {
+    if (this.contractForm.valid) {
+      this.contract = this.contractForm.value;
+      this.contractService.save(this.contract);
+      alert('Create Successfully');
+      this.ngOnInit();
+    }
+  }
 }

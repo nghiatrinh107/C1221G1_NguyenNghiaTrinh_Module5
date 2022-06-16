@@ -18,14 +18,16 @@ const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {
     path: 'facility',
-    loadChildren: () => import('./facility/facility.module.js').then(module => module.FacilityModule)
+    loadChildren: () => import('./facility/facility.module').then(module => module.FacilityModule)
   },
-  {path: 'customer', component: CustomerComponent},
-  {path: 'customer-create', component: CustomerCreateComponent},
-  {path: 'contract', component: ContractComponent},
-  {path: 'contract-create', component: ContractCreateComponent},
-  {path: 'customer-detail', component: CustomerDetailComponent },
-  {path: 'customer-edit/:customerId', component: CustomerEditComponent},
+  {
+    path: 'customer',
+    loadChildren: () => import('./customer/customer.module').then(module => module.CustomerModule)
+  },
+  {
+    path: 'contract',
+    loadChildren: () => import('./contract/contract.module').then(module => module.ContractModule)
+  },
 ];
 
 

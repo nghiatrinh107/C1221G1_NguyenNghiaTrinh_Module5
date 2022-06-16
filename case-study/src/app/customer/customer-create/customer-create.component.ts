@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {customerTypes} from '../../data/customerType';
 import {CustomerTypeService} from '../customer-type.service';
 import {CustomerService} from '../customer.service';
 import {Customer} from '../../module/customer';
@@ -16,7 +15,6 @@ import {CustomerType} from '../../module/customer-type';
 
 
 export class CustomerCreateComponent implements OnInit {
-  customer = {} as Customer;
   customerTypes: CustomerType[] = [];
   customerForm: FormGroup;
   constructor(private customerService: CustomerService,
@@ -24,6 +22,7 @@ export class CustomerCreateComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getAllCustomerTypes();
     this.customerForm = new FormGroup({
       customerName: new FormControl('', [Validators.required]),
       customerCode: new FormControl('', [Validators.required, Validators.pattern('^KH-\\d{4}$')]),
@@ -38,10 +37,17 @@ export class CustomerCreateComponent implements OnInit {
   }
 
   createCustomer() {
+    const customer = this.customerForm.value;
     if (this.customerForm.valid) {
-      this.customer = this.customerForm.value;
-      this.customerService.save(this.customer);
-      this.customerForm.reset();
+      this.customerService.save(customer).subscribe(() => {
+        alert('Tạo thành công');
+        this.customerForm.reset();
+      }, e => console.log(e));
     }
+  }
+  getAllCustomerTypes() {
+    this.customerTypeService.getAll().subscribe(customerTypes => {
+      this.customerTypes = customerTypes;
+    });
   }
 }

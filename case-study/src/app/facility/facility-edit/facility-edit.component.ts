@@ -80,7 +80,7 @@ export class FacilityEditComponent implements OnInit {
       this.facility = this.facilityForm.value;
       console.log(this.facility);
       this.facilityService.update(id, this.facility);
-      this.route.navigate(['/facility']);
+      this.route.navigate(['/facility/list']);
     }
   }
 }

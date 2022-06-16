@@ -18,6 +18,7 @@ import {FuramaRoutingModule} from './furama-routing.module';
 import { ModalComponent } from './modal/modal.component';
 import { CustomerDetailComponent } from './customer/customer-detail/customer-detail.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
 
 
 @NgModule({
@@ -25,21 +26,16 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    CustomerComponent,
-    CustomerCreateComponent,
-    CustomerEditComponent,
-    ContractComponent,
-    ContractCreateComponent,
     HomeComponent,
     ModalComponent,
-    CustomerDetailComponent
   ],
   imports: [
     BrowserModule,
     RouterModule,
     FuramaRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

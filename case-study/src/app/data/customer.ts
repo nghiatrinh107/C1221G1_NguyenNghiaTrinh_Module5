@@ -3,7 +3,7 @@ import {Customer} from '../module/customer';
 
 export const customers: Customer[] = [
   {
-    customerId: 1,
+    id: 1,
     customerCode: 'KH-0001',
     customerName: 'Nguyễn Thị Hào',
     dateOfBirth: '1970-11-07',
@@ -18,7 +18,7 @@ export const customers: Customer[] = [
     }
   },
   {
-    customerId: 2,
+    id: 2,
     customerCode: 'KH-0002',
     customerName: 'Phạm Xuân Diệu',
     dateOfBirth: '1992-08-08',
@@ -33,7 +33,7 @@ export const customers: Customer[] = [
     }
   },
   {
-    customerId: 3,
+    id: 3,
     customerCode: 'KH-0003',
     customerName: 'Trương Đình Nghệ',
     dateOfBirth: '1990-02-27',
@@ -48,7 +48,7 @@ export const customers: Customer[] = [
     }
   },
   {
-    customerId: 4,
+    id: 4,
     customerCode: 'KH-0004',
     customerName: 'Dương Văn Quan',
     dateOfBirth: '1981-07-08',
@@ -63,7 +63,7 @@ export const customers: Customer[] = [
     }
   },
   {
-    customerId: 5,
+    id: 5,
     customerCode: 'KH-0005',
     customerName: 'Hoàng Trần Nhi Nhi',
     dateOfBirth: '1995-12-09',
@@ -78,7 +78,7 @@ export const customers: Customer[] = [
     }
   },
   {
-    customerId: 6,
+    id: 6,
     customerCode: 'KH-0006',
     customerName: 'Tôn Nữ Mộc Châu',
     dateOfBirth: '2005-12-06',
@@ -93,7 +93,7 @@ export const customers: Customer[] = [
     }
   },
   {
-    customerId: 7,
+    id: 7,
     customerCode: 'KH-0007',
     customerName: 'Nguyễn Mỹ Kim',
     dateOfBirth: '1984-04-08',
@@ -108,7 +108,7 @@ export const customers: Customer[] = [
     }
   },
   {
-    customerId: 8,
+    id: 8,
     customerCode: 'KH-0008',
     customerName: 'Nguyễn Thị Hào',
     dateOfBirth: '1999-04-08',
@@ -123,7 +123,7 @@ export const customers: Customer[] = [
     }
   },
   {
-    customerId: 9,
+    id: 9,
     customerCode: 'KH-0009',
     customerName: 'Trần Đại Danh',
     dateOfBirth: '1994-07-01',
@@ -138,7 +138,7 @@ export const customers: Customer[] = [
     }
   },
   {
-    customerId: 10,
+    id: 10,
     customerCode: 'KH-0010',
     customerName: 'Nguyễn Tâm Đắc',
     dateOfBirth: '1989-07-01',

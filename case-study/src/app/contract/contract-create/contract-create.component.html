@@ -31,35 +31,32 @@
     </div>
     <div class="col-8 mx-auto">
       <div class="mx-auto shadow-lg p-3 mb-5 bg-white rounded-lg">
-        <form [formGroup]="contractForm" >
+        <form [formGroup]="contractForm" (ngSubmit)="createContract()">
         <div class="form-group row">
           <label for="startDate" class="col-sm-3 col-form-label">Start Date</label>
           <div class="col-sm-9">
-            <input type="date" class="form-control" id="startDate">
+            <input type="date" class="form-control" formControlName='startDate' id="startDate">
+            <p style="color: red" *ngIf="contractForm.controls.startDate.hasError('required') && contractForm.controls.startDate.touched">
+              Không đc để trống
+            </p>
           </div>
         </div>
         <div class="form-group row">
           <label for="endDate" class="col-sm-3 col-form-label">End Date</label>
           <div class="col-sm-9">
-            <input type="date" class="form-control" id="endDate">
+            <input type="date" class="form-control" formControlName='endDate' id="endDate">
+            <p style="color: red" *ngIf="contractForm.controls.endDate.hasError('required') && contractForm.controls.endDate.touched">
+              Không đc để trống
+            </p>
           </div>
         </div>
         <div class="form-group row">
           <label for="deposit" class="col-sm-3 col-form-label">Deposit</label>
           <div class="col-sm-9">
-            <input type="number" class="form-control" id="deposit" step="any">
-          </div>
-        </div>
-        <div class="form-group row">
-          <label for="employee" class="col-sm-3 col-form-label">Employee Create</label>
-          <div class="col-sm-9">
-            <select class="form-control"
-                    id="employee"
-                    name="employee">
-              <option value="null">Select Employee</option>
-              <option value="1">Nguyen Nghia Trinh</option>
-              <option value="2">Pro</option>
-            </select>
+            <input type="number" class="form-control" formControlName='deposit' id="deposit" step="any">
+            <p style="color: red" *ngIf="contractForm.controls.deposit.hasError('required') && contractForm.controls.deposit.touched">
+              Không đc để trống
+            </p>
           </div>
         </div>
         <div class="form-group row">
@@ -67,10 +64,13 @@
           <div class="col-sm-9">
             <select class="form-control"
                     id="customer"
+                    formControlName='customer'
                     name="customer">
-              <option value="null">Select Customer</option>
-              <option value="1">Nguyen Nghia Trinh</option>
-              <option value="2">Non</option>
+              <option value="">Select Customer</option>
+              <option *ngFor="let customer of customers" [ngValue]="customer">{{customer.customerName}}</option>
+              <p style="color: red" *ngIf="contractForm.controls.customer.hasError('required') && contractForm.controls.customer.touched">
+                Không đc để trống
+              </p>
             </select>
           </div>
         </div>
@@ -79,19 +79,22 @@
           <div class="col-sm-9">
             <select class="form-control"
                     id="facility"
+                    formControlName='facility'
                     name="facility">
-              <option value="null">Select Service</option>
-              <option value="1">Villa River Side</option>
-              <option value="2">Room Street view</option>
+              <option value="">Select Service</option>
+              <option *ngFor="let facility of facilities" [ngValue]="facility">{{facility.name}}</option>
+              <p style="color: red" *ngIf="contractForm.controls.facility.hasError('required') && contractForm.controls.facility.touched">
+                Không đc để trống
+              </p>
             </select>
           </div>
         </div>
         <div class="d-flex justify-content-center">
           <div class="mx-2">
-            <a href="#" class="button button--cancel cancel-banner-btn">Cancel</a>
+            <a href="#" class="btn btn-secondary">Cancel</a>
           </div>
           <div class="mx-2">
-            <a href="#" class="button button--active home-banner-btn">Create</a>
+            <button type="submit" class="btn btn-primary">Create</button>
           </div>
         </div>
         </form>

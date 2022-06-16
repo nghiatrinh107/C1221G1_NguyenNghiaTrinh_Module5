@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {customers} from '../../data/customer';
 import {Customer} from '../../module/customer';
 import {CustomerService} from '../customer.service';
 
@@ -12,27 +11,32 @@ declare let threeDotForCustomer: any;
   styleUrls: ['./customer.component.css']
 })
 export class CustomerComponent implements OnInit {
-  customers: Customer[] = [];
-  customerDelete = {} as Customer;
+
   constructor(private customerService: CustomerService) {
   }
+  customers: Customer[] = [];
+  customerDelete = {} as Customer;
+
+  // deleteCustomer(customerDelete: Customer) {
+  //   const check = this.customerService.findById(customerDelete.customerId) === undefined;
+  //   if (check) {
+  //     alert('can not found');
+  //   } else {
+  //     this.customerService.delete(customerDelete);
+  //     this.ngOnInit();
+  //   }
+  // }
+  p: string | number;
 
   ngOnInit(): void {
-    this.customers = this.customerService.getAllCustomer();
+    this.getAll();
     // tslint:disable-next-line:no-unused-expression
     new threeDotForCustomer();
   }
-  getCustomer(customer: Customer) {
-    this.customerDelete = customer;
-  }
 
-  deleteCustomer(customerDelete: Customer) {
-    const check = this.customerService.findById(customerDelete.customerId) === undefined;
-    if (check) {
-      alert('can not found');
-    } else {
-      this.customerService.delete(customerDelete);
-      this.ngOnInit();
-    }
+  getAll() {
+    this.customerService.getAll().subscribe(customers => {
+      this.customers = customers;
+    });
   }
 }

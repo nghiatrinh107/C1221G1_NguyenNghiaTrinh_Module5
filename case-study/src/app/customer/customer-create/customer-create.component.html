@@ -44,8 +44,12 @@
             <div class="col-sm-9">
               <input type="text" class="form-control" formControlName='customerCode' id="code">
               <p style="color: red"
-                 *ngIf="customerForm.controls.customerName.hasError('required') && customerForm.controls.customerName.touched">
+                 *ngIf="customerForm.controls.customerCode.hasError('required') && customerForm.controls.customerCode.touched">
                 Không đc để trống
+              </p>
+              <p style="color: red"
+                 *ngIf="customerForm.controls.customerCode.hasError('pattern') && customerForm.controls.customerCode.touched">
+                KH-XXXX
               </p>
             </div>
           </div>
@@ -128,6 +132,7 @@
             <div class="col-sm-9">
               <select id="customerType"
                       class="form-control" name="type" formControlName="customerType">
+                <option value="">Select customer type</option>
                 <option *ngFor="let item of customerTypes" [ngValue]="item">{{item.name}}</option>
               </select>
               <p style="color: red"
