@@ -7,7 +7,7 @@ import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 import {FacilityService} from '../facility.service';
 import {FacilityTypeService} from '../facility-type.service';
 import {RentTypeService} from '../rent-type.service';
-import {facilityTypes} from '../../data/facilityType';
+
 
 @Component({
   selector: 'app-facility-edit',
@@ -17,7 +17,6 @@ import {facilityTypes} from '../../data/facilityType';
 export class FacilityEditComponent implements OnInit {
   public poolSquare: boolean;
   public numberFloor: boolean;
-  facility = {} as Facility;
   facilityTypes: FacilityType[] = [];
   rentTypes: RentType[] = [];
   facilityForm: FormGroup;
@@ -29,9 +28,16 @@ export class FacilityEditComponent implements OnInit {
               private route: Router) {
     this.activatedRoute.paramMap.subscribe((paramMap: ParamMap) => {
       this.id = +paramMap.get('id');
-      const facility = this.getFacility(this.id);
-      this.facilityTypes = this.facilityTypeService.getAllFacilityType();
-      this.rentTypes = this.rentTypeService.getAllRentType();
+      this.getFacility(this.id);
+    });
+  }
+
+  ngOnInit(): void {
+    this.getAllFacilityTypes();
+    this.getAllRentTypes();
+  }
+  getFacility(id: number) {
+    return this.facilityService.findById(id).subscribe(facility => {
       this.facilityForm = new FormGroup({
         name: new FormControl(facility.name, [Validators.required]),
         code: new FormControl(facility.code, [Validators.required, Validators.pattern('^DV-\\d{4}$')]),
@@ -48,12 +54,6 @@ export class FacilityEditComponent implements OnInit {
         image: new FormControl(facility.image)
       });
     });
-  }
-
-  ngOnInit(): void {
-  }
-  getFacility(id: number) {
-    return this.facilityService.findById(id);
   }
   compareFn(t1, t2): boolean {
     return t1 && t2 ? t1.id === t2.id : t1 === t2;
@@ -77,11 +77,23 @@ export class FacilityEditComponent implements OnInit {
   }
   updateFacility(id: number) {
     if (this.facilityForm.valid) {
-      this.facility = this.facilityForm.value;
-      console.log(this.facility);
-      this.facilityService.update(id, this.facility);
-      this.route.navigate(['/facility/list']);
+      const facility = this.facilityForm.value;
+      console.log(facility);
+      this.facilityService.update(id, facility).subscribe(() => {
+        alert('Cập nhật thành công');
+        this.route.navigate(['/facility/list']);
+      });
     }
+  }
+  getAllFacilityTypes() {
+    this.facilityTypeService.getAll().subscribe(facilityTypes => {
+      this.facilityTypes = facilityTypes;
+    });
+  }
+  getAllRentTypes() {
+    this.rentTypeService.getAll().subscribe(rentTypes => {
+      this.rentTypes = rentTypes;
+    });
   }
 }
 

@@ -15,7 +15,6 @@ export class CustomerEditComponent implements OnInit {
   customerTypes: CustomerType[] = [];
   customerForm: FormGroup;
   id: number;
-
   constructor(private activatedRoute: ActivatedRoute,
               private customerService: CustomerService,
               private customerTypeService: CustomerTypeService,
@@ -51,7 +50,7 @@ export class CustomerEditComponent implements OnInit {
     if (this.customerForm.valid) {
       const customer = this.customerForm.value;
       console.log(customer);
-      this.customerService.updateProduct(id, customer).subscribe(() => {
+      this.customerService.update(id, customer).subscribe(() => {
         alert('Cập nhật thành công');
         this.route.navigate(['/customer/list']);
         }

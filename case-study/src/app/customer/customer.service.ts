@@ -16,8 +16,8 @@ export class CustomerService {
   getAll(): Observable<Customer[]> {
     return this.http.get<Customer[]>(API_URL + '/customers');
   }
-  save(product): Observable<Customer> {
-    return this.http.post<Customer>(API_URL + '/customers', product);
+  save(customer): Observable<Customer> {
+    return this.http.post<Customer>(API_URL + '/customers', customer);
   }
 
   findById(id: number): Observable<Customer> {
@@ -30,5 +30,10 @@ export class CustomerService {
 
   delete(id: number): Observable<Customer> {
     return this.http.delete<Customer>(`${API_URL}/customers/${id}`);
+  }
+
+  search(value: any, value2: any, value3: any): Observable<Customer[]> {
+    // tslint:disable-next-line:max-line-length
+    return this.http.get<Customer[]>(`${API_URL}/customers?customerName_like=${value}&phone_like=${value2}&customerType.name_like=${value3}`);
   }
 }

@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {Customer} from '../../module/customer';
 import {CustomerService} from '../customer.service';
 
@@ -11,25 +11,21 @@ declare let threeDotForCustomer: any;
   styleUrls: ['./customer.component.css']
 })
 export class CustomerComponent implements OnInit {
+  @ViewChild('name') name: ElementRef;
+  @ViewChild('phone') phone: ElementRef;
+  @ViewChild('type') type: ElementRef;
 
   constructor(private customerService: CustomerService) {
   }
+  customerDelete: string;
+  id: number;
   customers: Customer[] = [];
-  customerDelete = {} as Customer;
-
-  // deleteCustomer(customerDelete: Customer) {
-  //   const check = this.customerService.findById(customerDelete.customerId) === undefined;
-  //   if (check) {
-  //     alert('can not found');
-  //   } else {
-  //     this.customerService.delete(customerDelete);
-  //     this.ngOnInit();
-  //   }
-  // }
   p: string | number;
 
   ngOnInit(): void {
-    this.getAll();
+    // this.getAll();
+    this.customerService.search('', '', '').
+    subscribe(customers => this.customers = customers);
     // tslint:disable-next-line:no-unused-expression
     new threeDotForCustomer();
   }
@@ -37,6 +33,25 @@ export class CustomerComponent implements OnInit {
   getAll() {
     this.customerService.getAll().subscribe(customers => {
       this.customers = customers;
+    });
+  }
+
+  search() {
+    console.log(this.name.nativeElement.value);
+    console.log(this.phone.nativeElement.value);
+    console.log(this.type.nativeElement.value);
+    this.customerService.search(this.name.nativeElement.value, this.phone.nativeElement.value, this.type.nativeElement.value).
+    subscribe(customers => this.customers = customers, () => {} );
+  }
+
+  getCustomer(id: number, name: string) {
+    this.customerDelete = name;
+    this.id = id;
+  }
+
+  deleteCustomer(id: number) {
+    this.customerService.delete(id).subscribe(() => {
+      this.ngOnInit();
     });
   }
 }

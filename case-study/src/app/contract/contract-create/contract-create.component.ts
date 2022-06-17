@@ -22,15 +22,15 @@ export class ContractCreateComponent implements OnInit {
               private facilityService: FacilityService) { }
 
   ngOnInit(): void {
-    this.customers = this.customerService.getAllCustomer();
-    this.facilities = this.facilityService.getAllFacilities();
-    this.contractForm = new FormGroup({
-      customer: new FormControl(''),
-      facility: new FormControl(''),
-      startDate: new FormControl(''),
-      endDate: new FormControl(''),
-      deposit: new FormControl('')
-    });
+    // this.customers = this.customerService.getAllCustomer();
+    // this.facilities = this.facilityService.getAllFacilities();
+    // this.contractForm = new FormGroup({
+    //   customer: new FormControl(''),
+    //   facility: new FormControl(''),
+    //   startDate: new FormControl(''),
+    //   endDate: new FormControl(''),
+    //   deposit: new FormControl('')
+    // });
   }
   createContract() {
     if (this.contractForm.valid) {

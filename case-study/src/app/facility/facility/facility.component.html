@@ -58,7 +58,7 @@
           <h4>
             Price: {{facility.rentalFee|currency: "$" }}/ {{facility.rentType.rentType}}
           </h4>
-          <button style="padding: 0px;background-color: red" target="_parent" (click)="getFacility(facility)"  class="fa fa-fw btn btn-danger"
+          <button style="padding: 0px;background-color: red" target="_parent"   class="fa fa-fw btn btn-danger"
              data-toggle="modal" data-target="#exampleModal">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill"
                  viewBox="0 0 16 16">
@@ -97,7 +97,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" style="margin-right: 5px" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-danger" (click)="deleteFacility(facilityDelete)" data-dismiss="modal">Delete</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Delete</button>
       </div>
     </div>
   </div>

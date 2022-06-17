@@ -11,7 +11,7 @@ import { FacilityComponent } from './facility/facility/facility.component';
 import { FacilityCreateComponent } from './facility/facility-create/facility-create.component';
 import { FacilityEditComponent } from './facility/facility-edit/facility-edit.component';
 import { ContractComponent } from './contract/contract/contract.component';
-import { ContractCreateComponent } from './contract/contract-create/contract-create.component';
+// import { ContractCreateComponent } from './contract/contract-create/contract-create.component';
 import { HomeComponent } from './home/home.component';
 import {RouterModule} from '@angular/router';
 import {FuramaRoutingModule} from './furama-routing.module';

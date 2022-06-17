@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {renTypes} from '../../data/rentType';
-import {facilityTypes} from '../../data/facilityType';
-import {Facility} from '../../module/facility';
 import {FacilityType} from '../../module/facility-type';
 import {RentType} from '../../module/rent-type';
 import {RentTypeService} from '../rent-type.service';
@@ -20,7 +17,6 @@ export class FacilityCreateComponent implements OnInit {
   public poolSquare: boolean;
   public numberFloor: boolean;
   facilityForm: FormGroup;
-  facility = {} as Facility;
   facilityTypes: FacilityType[] = [];
   rentTypes: RentType[] = [];
   constructor(private facilityService: FacilityService,
@@ -28,8 +24,8 @@ export class FacilityCreateComponent implements OnInit {
               private rentTypeService: RentTypeService) { }
 
   ngOnInit(): void {
-    this.facilityTypes = this.facilityTypeService.getAllFacilityType();
-    this.rentTypes = this.rentTypeService.getAllRentType();
+    this.getAllFacilityTypes();
+    this.getAllRentTypes();
     this.facilityForm = new FormGroup({
       name: new FormControl('', [Validators.required]),
       code: new FormControl('', [Validators.required, Validators.pattern('^DV-\\d{4}$')]),
@@ -64,10 +60,22 @@ export class FacilityCreateComponent implements OnInit {
     }
   }
   createFacility() {
+    const facility = this.facilityForm.value;
     if (this.facilityForm.valid) {
-      this.facility = this.facilityForm.value;
-      this.facilityService.save(this.facility);
-      this.facilityForm.reset();
+      this.facilityService.save(facility).subscribe(() => {
+        alert('Tạo thành công');
+        this.facilityForm.reset();
+      }, e => console.log(e));
     }
+  }
+  getAllFacilityTypes() {
+    this.facilityTypeService.getAll().subscribe(facilityTypes => {
+      this.facilityTypes = facilityTypes;
+    });
+  }
+  getAllRentTypes() {
+    this.rentTypeService.getAll().subscribe(rentTypes => {
+      this.rentTypes = rentTypes;
+    });
   }
 }
