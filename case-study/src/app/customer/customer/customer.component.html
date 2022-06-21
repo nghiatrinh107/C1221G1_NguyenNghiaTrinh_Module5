@@ -66,12 +66,12 @@
         <td>{{index + 1}}</td>
         <td>{{customer.customerCode}}</td>
         <td>{{customer.customerName}}</td>
-        <td>{{customer.dateOfBirth| date: "dd/MM/yyyy"}}</td>
-        <td *ngIf="customer.gender == 0">Male</td>
-        <td *ngIf="customer.gender == 1">Female</td>
-        <td *ngIf="customer.gender == -1">Other</td>
-        <td>{{customer.phone}}</td>
-        <td>{{customer.customerType.name}}</td>
+        <td>{{customer.customerBirth| date: "dd/MM/yyyy"}}</td>
+        <td *ngIf="customer.customerGender == 0">Male</td>
+        <td *ngIf="customer.customerGender == 1">Female</td>
+        <td *ngIf="customer.customerGender == -1">Other</td>
+        <td>{{customer.customerPhone}}</td>
+        <td>{{customer.customerType.customerTypeName}}</td>
         <td>
           <div class="dropout d-flex align-items-center">
             <button class="more">
@@ -86,13 +86,13 @@
                 </button>
               </li>
               <li class="nav-item">
-                <button class="btn btn-warning w-100" [routerLink]="['/customer/edit',customer.id]">
+                <button class="btn btn-warning w-100" [routerLink]="['/customer/edit',customer.customerId]">
                   <i class="fa fa-pencil-square-o"></i>
                 </button>
               </li>
               <li class="nav-item">
                 <button class="btn btn-danger w-100" data-target="#deleteModal"
-                        (click)="getCustomer(customer.id,customer.customerName)"
+                        (click)="getCustomer(customer.customerId,customer.customerName)"
                         data-toggle="modal">
                   <i class="fa fa-trash-o"></i>
                 </button>

@@ -17,6 +17,7 @@ import {CustomerType} from '../../module/customer-type';
 export class CustomerCreateComponent implements OnInit {
   customerTypes: CustomerType[] = [];
   customerForm: FormGroup;
+  submitted = false;
   constructor(private customerService: CustomerService,
               private customerTypeService: CustomerTypeService) {
   }

@@ -5,7 +5,7 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 
 const API_URL = `${environment.apiUrl}`;
-
+const API_URL_JAVA = `${environment.apiUrlJava}`;
 @Injectable({
   providedIn: 'root'
 })
@@ -14,7 +14,7 @@ export class CustomerService {
   }
 
   getAll(): Observable<Customer[]> {
-    return this.http.get<Customer[]>(API_URL + '/customers');
+    return this.http.get<Customer[]>(API_URL_JAVA + '/customerRest/list');
   }
   save(customer): Observable<Customer> {
     return this.http.post<Customer>(API_URL + '/customers', customer);

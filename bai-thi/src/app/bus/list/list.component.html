@@ -1,0 +1,103 @@
+<div class="container table-responsive">
+  <p class="mt-3">Searching customer </p>
+  <div class="form-inline my-lg-3">
+    <div class="row">
+      <div class="col">
+        <input class="form-control mr-sm-2" type="search" placeholder="name" aria-label="Search"
+               name="name" #name>
+      </div>
+      <div class="col">
+        <select name="customerType"
+                class="form-control" #type>
+          <option value="">Select customerType</option>
+          <option value="Diamond"> Diamond</option>
+          <option value="Platinium"> Platinium</option>
+          <option value="Gold"> Gold</option>
+          <option value="Silver"> Silver</option>
+          <option value="Member"> Member</option>
+        </select>
+      </div>
+      <div class="col">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="search()">Search</button>
+      </div>
+    </div>
+  </div>
+
+<section class="section-margin section-margin--small">
+  <div class="container">
+    <div class="section-intro text-center pb-80px">
+      <h2>Danh sách các xe ở bến xe XYZ</h2>
+    </div>
+  </div>
+</section>
+  <table class="table mx-auto w-75">
+    <thead class="table-dark">
+    <tr>
+      <td scope="col">Số xe</td>
+      <td scope="col">Loại xe</td>
+      <td scope="col">Tên</td>
+      <td scope="col">Điểm đi</td>
+      <td scope="col">Điểm đến</td>
+      <td scope="col">SDT</td>
+      <td scope="col">Email</td>
+      <td scope="col">Giờ đi</td>
+      <td scope="col">Giờ đến</td>
+      <td scope="col">Action</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of busList|paginate : { itemsPerPage: 4, currentPage: p }; index as index">
+      <td>{{item.numberPlate}}</td>
+      <td>{{item.type.name}}</td>
+      <td>{{item.name}}</td>
+      <td>{{item.start}}</td>
+      <td>{{item.end}}</td>
+      <td>{{item.phone}}</td>
+      <td>{{item.email}}</td>
+      <td>{{item.startHours}}</td>
+      <td>{{item.endHours}}</td>
+      <td>
+        <a class="btn btn-warning" [routerLink]="['/edit',item.id]"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+          <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+          <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+        </svg></a>
+        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                (click)="getBus(item.id,item.numberPlate)">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+            <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+            <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+          </svg>
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <div style="justify-content: space-around;display: flex;">
+    <pagination-controls (pageChange)="p = $event" class=" page-item"></pagination-controls>
+  </div>
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Bạn có đồng ý xóa thông tin của xe khách có biển số xe:
+          <span class="text-danger font-weight-bold" id="nameDelete">{{busDelete}}</span>
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-danger" (click)="deleteBus(id)"
+                data-bs-dismiss="modal" >Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

@@ -1,0 +1,130 @@
+<section class="section-margin section-margin--small">
+  <div class="container">
+    <div class="section-intro text-center pb-80px">
+      <h2>Chỉnh sửa thông tin xe</h2>
+    </div>
+    <form [formGroup]="busForm" (ngSubmit)="create()">
+      <div class="col-8 mx-auto">
+        <div class="mx-auto shadow-lg p-3 mb-5 bg-white rounded-lg">
+          <div class="form-group row">
+            <label for="id" class="col-sm-3 col-form-label">Số xe</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" formControlName='numberPlate' id="id" >
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="type" class="col-sm-3 col-form-label">Loại xe</label>
+            <div class="col-sm-9">
+              <select id="type"
+                      class="form-control" name="type" formControlName="type">
+                <option value="">Chọn điểm đến</option>
+                <option *ngFor="let type of types" [ngValue]="type">{{type.name}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="name" class="col-sm-3 col-form-label">Tên nhà xe</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" formControlName='name' id="name">
+              <p style="color: red"
+                 *ngIf="busForm.controls.name.hasError('required') && (busForm.controls.name.touched || submitted)">
+                Không đc để trống
+              </p>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="start" class="col-sm-3 col-form-label">Điểm đi</label>
+            <div class="col-sm-9">
+              <select id="start"
+                      class="form-control" name="start" formControlName="start">
+                <option value="">Chọn điểm đến</option>
+                <option value="Đà Nẵng">Đà Nẵng</option>
+                <option value="Hà Nội">Hà Nội</option>
+                <option value="Hồ Chí Minh">Hồ Chí Minh</option>
+              </select>
+              <p style="color: red"
+                 *ngIf="busForm.controls.start.hasError('required') && (busForm.controls.start.touched || submitted)">
+                Chọn điểm đi
+              </p>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="end" class="col-sm-3 col-form-label">Điểm đến</label>
+            <div class="col-sm-9">
+              <select id="end"
+                      class="form-control" name="end" formControlName="end">
+                <option value="">Chọn điểm đến</option>
+                <option value="Đà Nẵng">Đà Nẵng</option>
+                <option value="Hà Nội">Hà Nội</option>
+                <option value="Hồ Chí Minh">Hồ Chí Minh</option>
+              </select>
+              <p style="color: red"
+                 *ngIf="busForm.controls.end.hasError('required') && (busForm.controls.end.touched || submitted)">
+                Không đc để trống
+              </p>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="phone" class="col-sm-3 col-form-label">SĐT</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" formControlName='phone' id="phone">
+              <p style="color: red"
+                 *ngIf="busForm.controls.phone.hasError('required') && (busForm.controls.phone.touched || submitted)">
+                Không đc để trống
+              </p>
+              <p style="color: red"
+                 *ngIf="busForm.controls.phone.hasError('pattern') && (busForm.controls.phone.touched || submitted)">
+                Số điện thoại không hợp lệ(090,093 hoặc 097)
+              </p>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="email" class="col-sm-3 col-form-label">Email</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" formControlName='email' id="email">
+              <p style="color: red"
+                 *ngIf="busForm.controls.email.hasError('required') && (busForm.controls.email.touched || submitted)">
+                Không đc để trống
+              </p>
+              <p style="color: red"
+                 *ngIf="busForm.controls.email.hasError('email') && (busForm.controls.email.touched || submitted)">
+                Chưa đúng định dạng email(xxx@email.com)
+              </p>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="startHours" class="col-sm-3 col-form-label">Giờ đi</label>
+            <div class="col-sm-9">
+              <input type="time" class="form-control" formControlName='startHours' id="startHours">
+              <p style="color: red"
+                 *ngIf="busForm.controls.startHours.hasError('required') && (busForm.controls.startHours.touched || submitted)">
+                Không đc để trống
+              </p>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="endHours" class="col-sm-3 col-form-label">Giờ đến</label>
+            <div class="col-sm-9">
+              <input type="time" class="form-control" formControlName='endHours' id="endHours">
+              <p style="color: red"
+                 *ngIf="busForm.controls.endHours.hasError('required') && (busForm.controls.endHours.touched || submitted)">
+                Không đc để trống
+              </p>
+            </div>
+          </div>
+          <div class="d-flex justify-content-center">
+            <div class="mx-2">
+              <a [routerLink]="['/list']" class="btn btn-secondary ">Cancel</a>
+            </div>
+            <div class="mx-2">
+              <button type="submit" class="btn btn-primary">Update</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+
+</section>
+
+

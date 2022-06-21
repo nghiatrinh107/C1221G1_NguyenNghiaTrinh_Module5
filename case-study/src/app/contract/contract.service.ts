@@ -12,18 +12,18 @@ private contracts: Contract[] = [
     endDate: '2022-12-12',
     deposit: 0,
     customer: {
-      id: 1,
+      customerId: 1,
       customerCode: 'KH-0001',
       customerName: 'Nguyễn Thị Hào',
-      dateOfBirth: '1970-11-07',
-      gender: 0,
-      idCard: '643431213',
-      phone: '0905423362',
-      email: 'thihao07@gmail.com',
-      address: '23 Nguyễn Hoàng, Đà Nẵng',
+      customerBirth: '1970-11-07',
+      customerGender: 0,
+      customerIdCard: '643431213',
+      customerPhone: '0905423362',
+      customerEmail: 'thihao07@gmail.com',
+      customerAddress: '23 Nguyễn Hoàng, Đà Nẵng',
       customerType: {
-        id: 5,
-        name: 'Member'
+        customerTypeId: 5,
+        customerTypeName: 'Member'
       }
     },
     facility: {
@@ -48,18 +48,18 @@ private contracts: Contract[] = [
     endDate: '2022-12-12',
     deposit: 180,
     customer: {
-      id: 3,
+      customerId: 3,
       customerCode: 'KH-0003',
       customerName: 'Trương Đình Nghệ',
-      dateOfBirth: '1990-02-27',
-      gender: 1,
-      idCard: '488645199',
-      phone: '0373213122',
-      email: 'nghenhan2702@gmail.com',
-      address: 'K323/12 Ông Ích Khiêm, Vinh',
+      customerBirth: '1990-02-27',
+      customerGender: 1,
+      customerIdCard: '488645199',
+      customerPhone: '0373213122',
+      customerEmail: 'nghenhan2702@gmail.com',
+      customerAddress: 'K323/12 Ông Ích Khiêm, Vinh',
       customerType: {
-        id: 1,
-        name: 'Diamond'
+        customerTypeId: 1,
+        customerTypeName: 'Diamond'
       }
     },
     facility: {
@@ -86,18 +86,18 @@ private contracts: Contract[] = [
     endDate: '2022-12-08',
     deposit: 0,
     customer: {
-      id: 5,
+      customerId: 5,
       customerCode: 'KH-0005',
       customerName: 'Hoàng Trần Nhi Nhi',
-      dateOfBirth: '1995-12-09',
-      gender: 0,
-      idCard: '795453345',
-      phone: '0312345678',
-      email: 'nhinhi123@gmail.com',
-      address: '224 Lý Thái Tổ, Gia Lai',
+      customerBirth: '1995-12-09',
+      customerGender: 0,
+      customerIdCard: '795453345',
+      customerPhone: '0312345678',
+      customerEmail: 'nhinhi123@gmail.com',
+      customerAddress: '224 Lý Thái Tổ, Gia Lai',
       customerType: {
-        id: 4,
-        name: 'Silver'
+        customerTypeId: 4,
+        customerTypeName: 'Silver'
       }
     },
     facility: {
@@ -122,18 +122,18 @@ private contracts: Contract[] = [
     endDate: '2020-11-11',
     deposit: 100,
     customer: {
-      id: 8,
+      customerId: 8,
       customerCode: 'KH-0008',
       customerName: 'Nguyễn Thị Hào',
-      dateOfBirth: '1999-04-08',
-      gender: 0,
-      idCard: '965656433',
-      phone: '0763212345',
-      email: 'haohao99@gmail.com',
-      address: '55 Nguyễn Văn Linh, Kon Tum',
+      customerBirth: '1999-04-08',
+      customerGender: 0,
+      customerIdCard: '965656433',
+      customerPhone: '0763212345',
+      customerEmail: 'haohao99@gmail.com',
+      customerAddress: '55 Nguyễn Văn Linh, Kon Tum',
       customerType: {
-        id: 3,
-        name: 'Gold'
+        customerTypeId: 3,
+        customerTypeName: 'Gold'
       }
     },
     facility: {
@@ -159,18 +159,18 @@ private contracts: Contract[] = [
     endDate: '2022-12-12',
     deposit: 0,
     customer: {
-      id: 9,
+      customerId: 9,
       customerCode: 'KH-0009',
       customerName: 'Trần Đại Danh',
-      dateOfBirth: '1994-07-01',
-      gender: 1,
-      idCard: '432341235',
-      phone: '0643343433',
-      email: 'danhhai99@gmail.com',
-      address: '24 Lý Thường Kiệt, Quảng Ngãi',
+      customerBirth: '1994-07-01',
+      customerGender: 1,
+      customerIdCard: '432341235',
+      customerPhone: '0643343433',
+      customerEmail: 'danhhai99@gmail.com',
+      customerAddress: '24 Lý Thường Kiệt, Quảng Ngãi',
       customerType: {
-        id: 1,
-        name: 'Diamond'
+        customerTypeId: 1,
+        customerTypeName: 'Diamond'
       }
     },
     facility: {

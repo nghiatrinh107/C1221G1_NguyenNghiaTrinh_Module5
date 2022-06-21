@@ -32,16 +32,18 @@ export class CustomerEditComponent implements OnInit {
   getCustomer(customerId: number) {
     return this.customerService.findById(customerId).subscribe(customer => {
       this.customerForm = new FormGroup({
-        id: new FormControl(customer.id),
         customerName: new FormControl(customer.customerName, [Validators.required]),
         customerCode: new FormControl(customer.customerCode, [Validators.required, Validators.pattern('^KH-\\d{4}$')]),
-        dateOfBirth: new FormControl(customer.dateOfBirth, [Validators.required, Validators.pattern('^\\d{4}-\\d{2}-\\d{2}$')]),
-        idCard: new FormControl(customer.idCard, [Validators.required, Validators.pattern('^(([1-9]\\d{8})|([1-9]\\d{11}))$')]),
-        phone: new FormControl(customer.phone, [Validators.required, Validators.pattern('^(091|090|\\(84\\)90|\\(84\\)91)\\d{7}$')]),
-        email: new FormControl(customer.email, [Validators.required, Validators.email]),
-        address: new FormControl(customer.address, [Validators.required]),
+        customerBirth: new FormControl(customer.customerBirth,
+          [Validators.required, Validators.pattern('^\\d{4}-\\d{2}-\\d{2}$')]),
+        customerIdCard: new FormControl(customer.customerIdCard,
+          [Validators.required, Validators.pattern('^(([1-9]\\d{8})|([1-9]\\d{11}))$')]),
+        customerPhone: new FormControl(customer.customerPhone,
+          [Validators.required, Validators.pattern('^(091|090|\\(84\\)90|\\(84\\)91)\\d{7}$')]),
+        customerEmail: new FormControl(customer.customerEmail, [Validators.required, Validators.email]),
+        customerAddress: new FormControl(customer.customerAddress, [Validators.required]),
         customerType: new FormControl(customer.customerType, [Validators.required]),
-        gender: new FormControl(customer.gender, [Validators.required])
+        customerGender: new FormControl(customer.customerGender, [Validators.required])
       });
     });
   }

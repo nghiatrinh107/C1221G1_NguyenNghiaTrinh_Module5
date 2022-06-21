@@ -11,8 +11,8 @@
       "email": "thihao07@gmail.com",
       "address": "23 Nguyễn Hoàng, Đà Nẵng",
       "customerType": {
-        "id": 5,
-        "name": "Member"
+        "customerTypeId": 5,
+        "customerTypeName": "Member"
       }
     },
     {
@@ -26,8 +26,8 @@
       "email": "xuandieu92@gmail.com",
       "address": "K77/22 Thái Phiên, Quảng Trị",
       "customerType": {
-        "id": 3,
-        "name": "Gold"
+        "customerTypeId": 3,
+        "customerTypeName": "Gold"
       }
     },
     {
@@ -41,8 +41,8 @@
       "email": "nghenhan2702@gmail.com",
       "address": "K323/12 Ông Ích Khiêm, Vinh",
       "customerType": {
-        "id": 1,
-        "name": "Diamond"
+        "customerTypeId": 1,
+        "customerTypeName": "Diamond"
       }
     },
     {
@@ -56,8 +56,8 @@
       "email": "duongquan@gmail.com",
       "address": "K453/12 Lê Lợi, Đà Nẵng",
       "customerType": {
-        "id": 1,
-        "name": "Diamond"
+        "customerTypeId": 1,
+        "customerTypeName": "Diamond"
       }
     },
     {
@@ -71,8 +71,8 @@
       "email": "nhinhi123@gmail.com",
       "address": "224 Lý Thái Tổ, Gia Lai",
       "customerType": {
-        "id": 4,
-        "name": "Silver"
+        "customerTypeId": 4,
+        "customerTypeName": "Silver"
       }
     },
     {
@@ -85,8 +85,8 @@
       "email": "tonnuchau@gmail.com",
       "address": "37 Yên Thế, Đà Nẵng",
       "customerType": {
-        "id": 3,
-        "name": "Gold"
+        "customerTypeId": 3,
+        "customerTypeName": "Gold"
       },
       "gender": "1"
     },
@@ -101,8 +101,8 @@
       "email": "kimcuong84@gmail.com",
       "address": "K123/45 Lê Lợi, Hồ Chí Minh",
       "customerType": {
-        "id": 1,
-        "name": "Diamond"
+        "customerTypeId": 1,
+        "customerTypeName": "Diamond"
       }
     },
     {
@@ -116,8 +116,8 @@
       "email": "haohao99@gmail.com",
       "address": "55 Nguyễn Văn Linh, Kon Tum",
       "customerType": {
-        "id": 3,
-        "name": "Gold"
+        "customerTypeId": 3,
+        "customerTypeName": "Gold"
       }
     },
     {
@@ -131,8 +131,8 @@
       "email": "danhhai99@gmail.com",
       "address": "24 Lý Thường Kiệt, Quảng Ngãi",
       "customerType": {
-        "id": 1,
-        "name": "Diamond"
+        "customerTypeId": 1,
+        "customerTypeName": "Diamond"
       }
     },
     {
@@ -146,31 +146,31 @@
       "email": "dactam@gmail.com",
       "address": "22 Ngô Quyền, Đà Nẵng",
       "customerType": {
-        "id": 2,
-        "name": "Platinium"
+        "customerTypeId": 2,
+        "customerTypeName": "Platinium"
       }
     }
   ],
   "customerTypes": [
     {
-      "id": 1,
-      "name": "Diamond"
+      "customerTypeId": 1,
+      "customerTypeName": "Diamond"
     },
     {
-      "id": 2,
-      "name": "Platinium"
+      "customerTypeId": 2,
+      "customerTypeName": "Platinium"
     },
     {
-      "id": 3,
-      "name": "Gold"
+      "customerTypeId": 3,
+      "customerTypeName": "Gold"
     },
     {
-      "id": 4,
-      "name": "Silver"
+      "customerTypeId": 4,
+      "customerTypeName": "Silver"
     },
     {
-      "id": 5,
-      "name": "Member"
+      "customerTypeId": 5,
+      "customerTypeName": "Member"
     }
   ],
   "facilityTypes": [

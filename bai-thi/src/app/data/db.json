@@ -1,0 +1,102 @@
+{
+  "starts": [
+    {
+      "id": 1,
+      "start": "Đà Nẵng"
+    },
+    {
+      "id": 2,
+      "start": "Hà Nội"
+    },
+    {
+      "id": 3,
+      "start": "Hồ Chí Minh"
+    }
+  ],
+  "types": [
+    {
+      "id": 1,
+      "type": "16 chỗ"
+    },
+    {
+      "id": 2,
+      "type": "32 chỗ"
+    },
+    {
+      "id": 3,
+      "type": "giường nằm"
+    }
+  ],
+  "busies": [
+    {
+      "id": 1231,
+      "type": {
+        "id": 1,
+        "type": "16 chỗ"
+      },
+      "name": "Hoàng Long",
+      "start": "Hà Nội",
+      "end": "Đà Nẵng",
+      "phone": "0931234567",
+      "email": "trinh@gmail.com",
+      "startHours": "06:30",
+      "endHours": "08:00"
+    },
+    {
+      "id": 1222,
+      "type": {
+        "id": 1,
+        "type": "16 chỗ"
+      },
+      "name": "Hoàng Long",
+      "start": "Hà Nội",
+      "end": "Đà Nẵng",
+      "phone": "0931234567",
+      "email": "trinh@gmail.com",
+      "startHours": "06:30",
+      "endHours": "08:00"
+    },
+    {
+      "id": 1241,
+      "type": {
+        "id": 1,
+        "type": "16 chỗ"
+      },
+      "name": "Hoàng Long",
+      "start": "Hà Nội",
+      "end": "Đà Nẵng",
+      "phone": "0931234567",
+      "email": "trinh@gmail.com",
+      "startHours": "06:30",
+      "endHours": "08:00"
+    },
+    {
+      "id": 9401,
+      "type": {
+        "id": 1,
+        "type": "16 chỗ"
+      },
+      "name": "Hoàng Long",
+      "start": "Hà Nội",
+      "end": "Đà Nẵng",
+      "phone": "0931234567",
+      "email": "trinh@gmail.com",
+      "startHours": "06:30",
+      "endHours": "08:00"
+    },
+    {
+      "id": 8751,
+      "type": {
+        "id": 1,
+        "type": "16 chỗ"
+      },
+      "name": "Hoàng Long",
+      "start": "Hà Nội",
+      "end": "Đà Nẵng",
+      "phone": "0931234567",
+      "email": "trinh@gmail.com",
+      "startHours": "06:30",
+      "endHours": "08:00"
+    }
+  ]
+}

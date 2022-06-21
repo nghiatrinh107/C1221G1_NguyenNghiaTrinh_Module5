@@ -23,18 +23,23 @@ export class CustomerComponent implements OnInit {
   p: string | number;
 
   ngOnInit(): void {
+    this.customerService.getAll().subscribe(customers => {
+      // @ts-ignore
+      this.customers = customers.content;
+      console.log(this.customers);
+    });
     // this.getAll();
-    this.customerService.search('', '', '').
-    subscribe(customers => this.customers = customers);
+    // this.customerService.search('', '', '').
+    // subscribe(customers => this.customers = customers);
     // tslint:disable-next-line:no-unused-expression
     new threeDotForCustomer();
   }
 
-  getAll() {
-    this.customerService.getAll().subscribe(customers => {
-      this.customers = customers;
-    });
-  }
+  // getAll() {
+  //   this.customerService.getAll().subscribe(customers => {
+  //     this.customers = customers;
+  //   });
+  // }
 
   search() {
     console.log(this.name.nativeElement.value);
